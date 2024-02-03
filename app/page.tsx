@@ -31,7 +31,7 @@ export default async function Home() {
                 hrefLang="en"
               />
               <BlokImage
-                blok={story.content.cover}
+                blok={{ image: story.content.cover }}
                 className="absolute inset-0 h-full w-full object-cover"
               />
             </li>
