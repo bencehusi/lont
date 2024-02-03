@@ -59,7 +59,7 @@ export interface GetStoriesParams {
    * Learn more in this [developer guide](https://www.storyblok.com/docs/guide/in-depth/rendering-the-link-field).
    * You can resolve entries going one level deep.
    */
-  resolve_links?: 'story' | 'url' | 'link';
+  resolve_links?: "story" | "url" | "link";
   /**
    * Get stories by comma separated uuid.
    * To get a specific language you need to combine it with the parameter language=en
@@ -113,7 +113,7 @@ export interface GetLinksParams {
   per_page?: number;
   starts_with?: string;
   paginated?: 1 | null | undefined | 0;
-  version?: 'draft' | 'published';
+  version?: "draft" | "published";
   cv?: number | undefined;
 }
 
@@ -132,6 +132,10 @@ export interface StoryLink {
    * Numeric id of the referenced content entry
    */
   id: number;
+  /**
+   * UUID of the referenced content entry
+   */
+  uuid: string;
   /**
    * The full_slug of the content entry, including the deployment name (root folder slug)
    * @example
@@ -168,6 +172,12 @@ export interface StoryLink {
    */
   is_startpage: boolean;
   alternates: LinkAlternate[];
+  /**
+   * The real path of the content entry. This is the path you can use to link to the content entry.
+   * @example
+   * `/blog/hello-world`
+   */
+  real_path: string;
 }
 
 export type LinkAlternate = {
@@ -184,7 +194,9 @@ export interface Story<StoryContentProps = any> {
   slug: string;
   full_slug: string;
   uuid: string;
-  content: StoryContentProps extends unknown ? GeneralBlokProps : StoryContentProps;
+  content: StoryContentProps extends unknown
+    ? GeneralBlokProps
+    : StoryContentProps;
   is_startpage: boolean;
   parent_id: string;
   group_id: string;
@@ -275,7 +287,7 @@ export interface StoryblokAssetProps {
 }
 
 export interface StoryblokRichTextProps {
-  type: 'doc';
+  type: "doc";
   content: StoryblokRichTextProps[];
 }
 
@@ -285,5 +297,5 @@ export interface StoryblokRichTextProps {
 
 export type PageContentType = Story<{
   _uid: string;
-  component: 'Page';
+  component: "Page";
 }>;
