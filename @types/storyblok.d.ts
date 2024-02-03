@@ -137,7 +137,7 @@ export interface StoryLink {
    */
   uuid: string;
   /**
-   * The full_slug of the content entry, including the deployment name (root folder slug)
+   * The full_slug of the content entry
    * @example
    * `lendahand-com/blog/hello-world`
    */

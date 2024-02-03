@@ -1,14 +1,22 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { storyblokInit, apiPlugin } from '@storyblok/react/rsc';
+import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 
 import "./globals.css";
-import { StoryblokProvider } from '@/components/providers/StoryblokProvider';
+import { StoryblokProvider } from "@/components/providers/StoryblokProvider";
 import ExposeRouteWrapper from "@/components/helpers/ExposeRouteWrapper";
+import { Project } from "@/components/contentTypes/Project";
+import { RichText } from "@/components/bloks/RichText";
+import { BlokImage } from "@/components/bloks/BlokImage";
 
 storyblokInit({
   accessToken: process.env.SB_TOKEN,
-  use: [apiPlugin]
+  use: [apiPlugin],
+  components: {
+    Project,
+    RichText,
+    BlokImage,
+  },
 });
 
 export const metadata: Metadata = {
@@ -27,7 +35,7 @@ export default function RootLayout({
         <body className="flex h-screen w-screen flex-col -space-x-0.5 bg-spring-wood p-2.5 text-black md:flex-row">
           <Link
             href="/"
-            className="order-1 flex shrink-0 justify-center md:justify-start items-center rounded-xl border-2 border-black py-4 md:h-full md:w-10 md:-rotate-180 md:[writing-mode:vertical-rl]"
+            className="order-1 flex shrink-0 items-center justify-center rounded-xl border-2 border-black py-4 md:h-full md:w-10 md:-rotate-180 md:justify-start md:[writing-mode:vertical-rl]"
           >
             Library of Narrative Types
           </Link>
