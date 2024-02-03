@@ -14,9 +14,10 @@ export default async function Home() {
 
   return (
     <div className="-mt-0.5 flex h-full md:mt-0 md:-space-x-0.5">
-      <ul className="hidden w-full max-w-64 space-y-3 rounded-xl border-2 border-black px-5 py-4 md:block">
-        <IndexLinks />
-      </ul>
+      <div className="hidden w-full max-w-64 -space-y-0.5 md:flex md:flex-col">
+        <div className="rounded-xl border-2 border-black px-5 py-2">Index</div>
+        <IndexLinks className="grow" />
+      </div>
       <div className="h-full grow overflow-y-auto overflow-x-hidden rounded-xl border-2 border-black">
         <div className="group -mb-0.5 -mt-0.5 grid w-[calc(100%+4px)] grid-cols-3">
           {stories?.map((story) => (
