@@ -1,2 +1,2 @@
-export * from './fetchLinks';
-export * from './fetchStories';
+export * from "./FetchLinks";
+export * from "./FetchStories";
