@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import localFont from "next/font/local";
+
 import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 
 import "./globals.css";
@@ -8,6 +10,29 @@ import ExposeRouteWrapper from "@/components/helpers/ExposeRouteWrapper";
 import { Project } from "@/components/contentTypes/Project";
 import { RichText } from "@/components/bloks/RichText";
 import { BlokImage } from "@/components/bloks/BlokImage";
+import classNames from "classnames";
+
+const nataliaMono = localFont({
+  variable: "--brand-font",
+  display: "swap",
+  src: [
+    {
+      path: "../fonts/NataliaMono-Bold.woff2",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../fonts/NataliaMono-Italic.woff2",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "../fonts/NataliaMono-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+});
 
 storyblokInit({
   accessToken: process.env.SB_TOKEN,
@@ -32,7 +57,12 @@ export default function RootLayout({
   return (
     <StoryblokProvider>
       <html lang="en">
-        <body className="flex h-screen w-screen flex-col -space-x-0.5 bg-spring-wood p-2.5 text-black md:flex-row">
+        <body
+          className={classNames(
+            nataliaMono.variable,
+            "font-brand flex h-screen w-screen flex-col -space-x-0.5 bg-spring-wood p-2.5 text-black md:flex-row",
+          )}
+        >
           <Link
             href="/"
             className="order-1 flex shrink-0 items-center justify-center rounded-xl border-2 border-black py-4 md:h-full md:w-10 md:-rotate-180 md:justify-start md:[writing-mode:vertical-rl]"
