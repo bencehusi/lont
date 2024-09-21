@@ -17,7 +17,9 @@ export function BlokImage({
   const { width, height } = extractImageDimensions(filename);
   const Wrapper = caption ? "figure" : Fragment;
   return (
-    <Wrapper className="relative flex flex-col items-end">
+    <Wrapper
+      {...(caption ? { className: "relative flex flex-col items-end" } : {})}
+    >
       <Image
         src={`${filename}`}
         fill={fill}

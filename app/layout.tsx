@@ -60,30 +60,30 @@ export default function RootLayout({
         <body
           className={classNames(
             nataliaMono.variable,
-            "font-brand flex h-screen w-screen flex-col -space-x-0.5 bg-spring-wood p-2.5 text-black md:flex-row",
+            "flex h-screen w-screen flex-col -space-x-0.5 bg-spring-wood p-2.5 font-brand text-black lg:flex-row",
           )}
         >
           <Link
             href="/"
-            className="order-1 flex shrink-0 items-center justify-center rounded-xl border-2 border-black py-4 md:h-full md:w-10 md:-rotate-180 md:justify-start md:[writing-mode:vertical-rl]"
+            className="order-1 -mb-0.5 flex shrink-0 items-center justify-center rounded-xl border-2 border-black py-4 lg:mb-0 lg:h-full lg:w-10 lg:-rotate-180 lg:justify-start lg:[writing-mode:vertical-rl]"
           >
             Library of Narrative Types
           </Link>
           <Link
             href="/fonts"
-            className="order-3 hidden h-full w-10 shrink-0 -rotate-180 items-center rounded-xl border-2 border-black py-4 [writing-mode:vertical-rl] md:flex"
+            className="order-3 hidden h-full w-10 shrink-0 -rotate-180 items-center rounded-xl border-2 border-black py-4 [writing-mode:vertical-rl] lg:flex"
           >
             Fonts
           </Link>
           <Link
             href="/shop"
-            className="order-5 hidden h-full w-10 shrink-0 -rotate-180 items-center rounded-xl border-2 border-black py-4 [writing-mode:vertical-rl] md:flex"
+            className="order-5 hidden h-full w-10 shrink-0 -rotate-180 items-center rounded-xl border-2 border-black py-4 [writing-mode:vertical-rl] lg:flex"
           >
             Shop
           </Link>
           <Link
             href="/colophon"
-            className="order-7 hidden h-full w-10 shrink-0 -rotate-180 items-center rounded-xl border-2 border-black py-4 [writing-mode:vertical-rl] md:flex"
+            className="order-7 hidden h-full w-10 shrink-0 -rotate-180 items-center rounded-xl border-2 border-black py-4 [writing-mode:vertical-rl] lg:flex"
           >
             Colophon
           </Link>
