@@ -8,12 +8,17 @@ export async function IndexLinks({ className }: { className?: string }) {
     starts_with: "projects/",
   });
 
-  if (!response) return <></>;
+  if (!response) return <div></div>;
 
   return (
-    <ul className={cn("rounded-xl border-2 border-black p-5", className)}>
+    <ul
+      className={cn(
+        "space-y-2 rounded-xl border-2 border-black px-5 py-2",
+        className,
+      )}
+    >
       {Object.keys(response?.links).map((key) => (
-        <li key={key} className="flex items-center space-x-2">
+        <li key={key} className="flex items-center space-x-2 font-bold">
           <Link href={response.links[key].real_path}>
             {response.links[key].name}
           </Link>
