@@ -133,7 +133,7 @@ export default async function ColophonPage({ params }: PageProps) {
           )}
         </ul>
       </aside>
-      <div className="order-first h-full grow overflow-y-auto rounded-xl border-2 border-black md:order-last md:-ml-0.5 lg:flex">
+      <div className="order-first h-full grow overflow-y-auto rounded-xl border-2 border-black pb-6 md:order-last md:-ml-0.5 lg:flex">
         <Project blok={colohpon.story?.content} />
       </div>
     </div>
