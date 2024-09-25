@@ -21,7 +21,7 @@ export function MasonryGrid({ homePageContent }: { homePageContent: any }) {
     >
       {homePageContent?.map((blok: any) =>
         blok.project.story ? (
-          <li
+          <div
             key={blok._uid}
             className={cn(
               "relative overflow-hidden rounded-[10px] outline outline-2",
@@ -37,7 +37,7 @@ export function MasonryGrid({ homePageContent }: { homePageContent: any }) {
               blok={{ image: blok.project.story.content.cover }}
               className="absolute inset-0 h-full w-full object-cover"
             />
-          </li>
+          </div>
         ) : (
           <div
             key={blok._uid}
