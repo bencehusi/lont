@@ -4,6 +4,7 @@ import { fetchStories } from "@/lib/storyblok";
 import { extractImageDimensions } from "@/lib/storyblok/ExtractImageDimensions";
 import { BlokImage } from "@/components/bloks/BlokImage";
 import { RichText } from "@/components/bloks/RichText";
+import Link from "next/link";
 
 export async function generateMetadata(
   { params, searchParams }: PageProps,
@@ -160,6 +161,21 @@ export default async function FontPage({ params }: PageProps) {
           </div>
         </div>
         {/* Thanks to */}
+      </div>
+      <div className="flex justify-center gap-4 pb-8 md:gap-12">
+        <button className="rounded-xl border-2 border-black bg-[#F59797] px-4 py-1 font-bold md:text-lg">
+          Buy
+        </button>
+        <button className="rounded-xl border-2 border-black bg-[#F59797] px-4 py-1 font-bold md:text-lg">
+          Trials
+        </button>
+        <Link
+          href="/specimen/LNT-Natalia-Mono-specimen.pdf"
+          target="_blank"
+          className="rounded-xl border-2 border-black bg-[#F59797] px-4 py-1 font-bold md:text-lg"
+        >
+          PDF Specimen
+        </Link>
       </div>
     </div>
   );
