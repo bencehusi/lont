@@ -19,14 +19,10 @@ export function FontItem({ font }: { font: Story }) {
       <div className="flex text-sm md:text-base">
         <div className="grow">
           <h2>{font.content?.name}</h2>
-          <p>
-            {font.content?.weights
-              ?.map((weight: any) => weight.weight_text)
-              .join(", ")}
-          </p>
+          <p className="capitalize">{font.content?.style}</p>
         </div>
         <div className="grow">
-          <p>{font.content?.weights.length} styles</p>
+          <p>{font.content?.weights.length} weights</p>
           <p>{font.content.features}</p>
         </div>
       </div>

@@ -5,6 +5,7 @@ import { extractImageDimensions } from "@/lib/storyblok/ExtractImageDimensions";
 import { BlokImage } from "@/components/bloks/BlokImage";
 import { RichText } from "@/components/bloks/RichText";
 import Link from "next/link";
+import { BuyButton } from "@/components/buyButton/BuyButton";
 
 export async function generateMetadata(
   { params, searchParams }: PageProps,
@@ -48,10 +49,29 @@ export default async function FontPage({ params }: PageProps) {
     <div className="h-full grow overflow-y-auto rounded-xl border-2 border-black">
       <div className="relative z-10 -mx-0.5 -mt-0.5 min-h-20 rounded-xl border-2 border-black bg-spring-wood pl-4 md:min-h-36">
         <div className="flex items-center justify-between">
-          <h1 className="font-bold">{font.story?.content?.name}</h1>
-          <button className="rounded-xl border-2 border-black bg-[#F59797] px-4 py-1 font-bold md:text-lg">
+          <h1 className="font-bold">
+            {font.story?.content?.name}&nbsp;
+            <span className="capitalize">{font.story?.content?.style}</span>
+          </h1>
+          <BuyButton
+            products={[
+              {
+                price_id: "natalia_mono_normal_regular",
+                quantity: 1,
+                name: "Natalia Mono Normal Regular",
+                price: 10,
+              },
+              {
+                price_id: "natalia_mono_normal_bold",
+                quantity: 1,
+                name: "Natalia Mono Normal Bold",
+                price: 10,
+              },
+            ]}
+            className="-m-0.5 rounded-xl border-2 border-black bg-[#F59797] px-4 py-1 font-bold md:text-lg"
+          >
             Buy
-          </button>
+          </BuyButton>
         </div>
       </div>
       {/* Header */}
