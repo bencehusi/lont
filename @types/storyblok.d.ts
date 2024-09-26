@@ -299,3 +299,7 @@ export type PageContentType = Story<{
   _uid: string;
   component: "Page";
 }>;
+
+/**
+ * Other schema
+ */
