@@ -33,8 +33,17 @@ const buffer = async (req: NextRequest): Promise<Buffer> => {
 };
 
 export async function POST(req: NextRequest) {
-  const webhookSecret: string = process.env.STRIPE_WEBHOOK_SECRET;
+  const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
+  if (!webhookSecret) {
+    throw new Error("Missing STRIPE_WEBHOOK_SECRET environment variable");
+  }
   const sig = req.headers.get("stripe-signature");
+  if (!sig) {
+    return NextResponse.json(
+      { error: "Missing stripe-signature header" },
+      { status: 400 },
+    );
+  }
 
   let event: Stripe.Event;
 
@@ -42,9 +51,15 @@ export async function POST(req: NextRequest) {
     const body = await buffer(req);
     event = stripe.webhooks.constructEvent(body, sig, webhookSecret);
   } catch (err) {
-    console.log(`❌ Error message: ${err.message}`);
+    if (err instanceof Error) {
+      console.log(`❌ Error message: ${err.message}`);
+    } else {
+      console.log(`❌ Unknown error: ${err}`);
+    }
     return NextResponse.json(
-      { error: `Webhook Error: ${err.message}` },
+      {
+        error: `Webhook Error: ${err instanceof Error ? err.message : "Unknown error"}`,
+      },
       { status: 400 },
     );
   }
