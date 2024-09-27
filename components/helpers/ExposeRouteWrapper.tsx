@@ -13,6 +13,8 @@ export default function ExposeRouteWrapper({
       className={cn(
         "grow overflow-y-auto",
         (pathName === "/" || pathName === "/home") && "order-2",
+        pathName.startsWith("/order") && "order-2",
+        pathName.startsWith("/cart") && "order-2",
         pathName.startsWith("/projects") && "order-2",
         pathName.startsWith("/fonts") && "order-4",
         pathName.startsWith("/shop") && "order-6",

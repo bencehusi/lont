@@ -100,3 +100,11 @@ For each of these collection-types there are two content types:
 1. Create a folder you want your collection to reside (e.g., blog)
 2. Add a Home content type (e.g., BlogHome) and check the "root" option
 3. You can start adding Post content types and they will be listed on the root URL (e.g., /blog)
+
+## Stripe
+
+### Dev info
+
+To listen to webhooks run the Stripe CLI
+
+`stripe listen --forward-to localhost:3000/api/webhooks`

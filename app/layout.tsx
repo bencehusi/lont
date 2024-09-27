@@ -65,25 +65,25 @@ export default function RootLayout({
         >
           <Link
             href="/"
-            className="order-1 -mb-0.5 flex shrink-0 items-center justify-center rounded-xl border-2 border-black py-4 lg:mb-0 lg:h-full lg:w-10 lg:-rotate-180 lg:justify-start lg:[writing-mode:vertical-rl]"
+            className="order-1 -mb-0.5 flex shrink-0 items-center justify-center rounded-xl border-2 border-black py-4 font-bold lg:mb-0 lg:h-full lg:w-10 lg:-rotate-180 lg:justify-start lg:[writing-mode:vertical-rl]"
           >
             Library of Narrative Types
           </Link>
           <Link
             href="/fonts"
-            className="order-3 hidden h-full w-10 shrink-0 -rotate-180 items-center rounded-xl border-2 border-black py-4 [writing-mode:vertical-rl] lg:flex"
+            className="order-3 hidden h-full w-10 shrink-0 -rotate-180 items-center rounded-xl border-2 border-black py-4 font-bold [writing-mode:vertical-rl] lg:flex"
           >
             Fonts
           </Link>
           <Link
             href="/shop"
-            className="order-5 hidden h-full w-10 shrink-0 -rotate-180 items-center rounded-xl border-2 border-black py-4 [writing-mode:vertical-rl] lg:flex"
+            className="order-5 hidden h-full w-10 shrink-0 -rotate-180 items-center rounded-xl border-2 border-black py-4 font-bold [writing-mode:vertical-rl] lg:flex"
           >
             Shop
           </Link>
           <Link
             href="/colophon"
-            className="order-7 hidden h-full w-10 shrink-0 -rotate-180 items-center rounded-xl border-2 border-black py-4 [writing-mode:vertical-rl] lg:flex"
+            className="order-7 hidden h-full w-10 shrink-0 -rotate-180 items-center rounded-xl border-2 border-black py-4 font-bold [writing-mode:vertical-rl] lg:flex"
           >
             Colophon
           </Link>
