@@ -6,12 +6,6 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
   apiVersion: "2024-06-20",
 });
 
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
-
 const buffer = async (req: NextRequest): Promise<Buffer> => {
   const chunks: Uint8Array[] = [];
   const reader = req.body?.getReader();
