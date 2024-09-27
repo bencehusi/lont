@@ -57,6 +57,38 @@ export default function RootLayout({
   return (
     <StoryblokProvider>
       <html lang="en">
+        {/* favicon favicon-frame-1.svg */}
+        <head>
+          <meta charSet="utf-8" />
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+          />
+          <link
+            id="favicon"
+            rel="icon"
+            type="image/svg+xml"
+            href="/favicon-frame-1.svg"
+            sizes="any"
+          />
+          <link rel="mask-icon" href="/favicon-frame-1.svg" color="#000000" />
+          <link rel="apple-touch-icon" href="/favicon-frame-1.svg" />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+              window.onload = function() {
+            let faviconIndex = 0;
+            var favicon = document.getElementById('favicon');
+            setInterval(function() {
+                    favicon.href = '/favicon-frame-' + (faviconIndex + 1) + ".svg";
+                    faviconIndex++;
+                    faviconIndex %= 4;
+              }, 1000);
+            };`,
+            }}
+          />
+          <title>LoNT - Library of Narrative Types</title>
+        </head>
         <body
           className={classNames(
             nataliaMono.variable,
