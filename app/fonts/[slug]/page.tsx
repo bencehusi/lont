@@ -1,10 +1,10 @@
 import { ResolvingMetadata } from "next";
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
-import { PageProps } from "@/.next/types/app/layout";
 import { fetchStories } from "@/lib/storyblok";
 import { extractImageDimensions } from "@/lib/storyblok/ExtractImageDimensions";
 import FontContent from "./components/FontContent";
+import { PageProps } from "@/@types/common";
 
 export async function generateMetadata(
   { params, searchParams }: PageProps,

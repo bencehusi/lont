@@ -1,8 +1,8 @@
 import { ResolvingMetadata } from "next";
-import { PageProps } from "@/.next/types/app/layout";
 import { Project } from "@/components/contentTypes/Project";
 import { fetchStories } from "@/lib/storyblok";
 import { extractImageDimensions } from "@/lib/storyblok/ExtractImageDimensions";
+import { PageProps } from "@/@types/common";
 
 export async function generateMetadata(
   { params, searchParams }: PageProps,
