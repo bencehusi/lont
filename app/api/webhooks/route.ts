@@ -60,7 +60,7 @@ export async function POST(req: NextRequest) {
     console.log(`💵 Charge id: ${charge.id}`, event.data);
   } else if (event.type === "checkout.session.completed") {
     const session = event.data.object as Stripe.Checkout.Session;
-    console.log(`🛒 Checkout session id: ${session.id}`, event.data);
+    console.log(`🛒 Checkout session: ${session.id}`, event.data);
     // Retrieve line items
     const lineItems = await stripe.checkout.sessions.listLineItems(session.id);
     console.log("📦 Line items:", lineItems);
