@@ -68,12 +68,12 @@ export default function FontContent({
       <div className="max-w-[624px] space-y-8 px-4 py-3 md:px-6">
         {font.story?.content?.description && (
           <div>
-            <p className="indent-5">About the typeface:</p>
+            <p>About the typeface:</p>
             <RichText blok={font.story?.content?.description} />
           </div>
         )}
         <div>
-          <h2 className="indent-5">Weights:</h2>
+          <h2>Weights:</h2>
           <ul className="list-disc pl-4">
             {font.story?.content?.weights.map((weight: any) => (
               <li key={weight.weight_text}>{weight.weight_text}</li>
@@ -82,17 +82,17 @@ export default function FontContent({
         </div>
         {/* Weight */}
         <div>
-          <h2 className="indent-5">Number of glyphs:</h2>
+          <h2>Number of glyphs:</h2>
           <p>{font.story?.content?.number_of_glyphs}</p>
         </div>
         {/* Number of glyphs: */}
         <div>
-          <h2 className="indent-5">File formats:</h2>
+          <h2>File formats:</h2>
           <p>{font.story?.content?.file_formats}</p>
         </div>
         {/* File formats: */}
         <div>
-          <h2 className="indent-5">Language support:</h2>
+          <h2>Language support:</h2>
           <div className="relative">
             <input
               type="checkbox"
@@ -118,32 +118,32 @@ export default function FontContent({
         </div>
         {/* Language support: */}
         <div>
-          <h2 className="indent-5">Design:</h2>
+          <h2>Design:</h2>
           <p>{font.story?.content?.design}</p>
         </div>
         {/* Design */}
         <div>
-          <h2 className="indent-5">Year:</h2>
+          <h2>Year:</h2>
           <p>{font.story?.content?.year}</p>
         </div>
         {/* Year */}
         <div>
-          <h2 className="indent-5">Mentoring:</h2>
+          <h2>Mentoring:</h2>
           <p>{font.story?.content?.mentoring}</p>
         </div>
         {/* Mentoring */}
         <div>
-          <h2 className="indent-5">Type specimen layout:</h2>
+          <h2>Type specimen layout:</h2>
           <p>{font.story?.content?.type_specimen_layout}</p>
         </div>
         {/* Type specimen layout */}
         <div>
-          <h2 className="indent-5">Cover image:</h2>
+          <h2>Cover image:</h2>
           <p>{font.story?.content?.cover_image_credits}</p>
         </div>
         {/* Cover image */}
         <div>
-          <h2 className="indent-5">Thanks to:</h2>
+          <h2>Thanks to:</h2>
           <div className="whitespace-pre-line">
             {font.story?.content?.thanks_to}
           </div>
