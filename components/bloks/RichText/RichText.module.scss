@@ -1,7 +1,4 @@
 .RichText {
-  p {
-    text-indent: 20px;
-  }
   a:not([class]) {
     @apply relative z-[1] inline-block text-gray-700 underline underline-offset-1 hover:text-gray-800;
   }

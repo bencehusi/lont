@@ -1,9 +1,10 @@
 import sgMail from "@sendgrid/mail";
 sgMail.setApiKey(process.env.SEND_GRID_API_KEY as string);
 
-const SendGridTemplateId = "d-71a1e887abe94554b98d83b69cb675b5";
+const SendGridTemplateId = "d-17682e5e3c8a46f1bd45ceaf1bb0ea26";
 
 export async function SendOrderConfirmation({
+  session_id,
   email,
   customer_name,
   order_number,
@@ -11,6 +12,7 @@ export async function SendOrderConfirmation({
   purchased_products,
   download_links,
 }: {
+  session_id: string;
   email: string;
   customer_name: string;
   order_number: string;
@@ -23,6 +25,7 @@ export async function SendOrderConfirmation({
     from: "order@libraryofnarrativetypes.xyz",
     templateId: SendGridTemplateId,
     dynamicTemplateData: {
+      session_id,
       customer_name,
       order_number,
       purchase_date,

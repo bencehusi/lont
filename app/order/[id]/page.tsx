@@ -21,10 +21,22 @@ export default async function OrderId({ params }: PageProps) {
     }
   } catch (error) {
     console.error(error);
-    return {
-      status: 404,
-      error: "Order not found",
-    };
+    return (
+      <div className="h-full grow overflow-y-auto rounded-xl border-2 border-black px-4 py-10 sm:px-6 md:py-16">
+        <div className="mx-auto max-w-lg">
+          <h1 className="mb-2 text-xl font-bold md:text-3xl">
+            Order not found
+          </h1>
+          <p className="mb-10">
+            Please, contact us at{" "}
+            <a href="mailto:libraryofnarrativetypes@gmail.com">
+              libraryofnarrativetypes@gmail.com
+            </a>{" "}
+            for further assistance.
+          </p>
+        </div>
+      </div>
+    );
   }
   return (
     <div className="h-full grow overflow-y-auto rounded-xl border-2 border-black px-4 py-10 sm:px-6 md:py-16">

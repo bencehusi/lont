@@ -84,6 +84,7 @@ export async function POST(req: NextRequest) {
       /* Add the product to the lineItem */
       (lineItems.data[i] as LineItemWithProduct).product = product;
     }
+    const session_id = session.id;
     const email = session.customer_details?.email;
     const customer_name = session.customer_details?.name;
     const order_number = session.payment_intent;
@@ -96,6 +97,7 @@ export async function POST(req: NextRequest) {
     }));
     try {
       await SendOrderConfirmation({
+        session_id: session_id as string,
         email: email as string,
         customer_name: customer_name as string,
         order_number: order_number as string,
