@@ -22,7 +22,10 @@ export async function SendOrderConfirmation({
 }) {
   const msg = {
     to: email,
-    from: "order@libraryofnarrativetypes.xyz",
+    from: {
+      email: "order@libraryofnarrativetypes.xyz",
+      name: "Nora from Library of Narrative Types",
+    },
     templateId: SendGridTemplateId,
     dynamicTemplateData: {
       session_id,

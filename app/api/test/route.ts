@@ -7,7 +7,10 @@ const SendGridTemplateId = "d-17682e5e3c8a46f1bd45ceaf1bb0ea26";
 export async function POST(req: NextRequest) {
   const msg = {
     to: "bence.husi@gmail.com", // Change to your recipient
-    from: "hello@libraryofnarrativetypes.xyz", // Change to your verified sender
+    from: {
+      email: "hello@libraryofnarrativetypes.xyz", // Change to your verified sender
+      name: "Nora from Library of Narrative Types",
+    },
     reply_to: "libraryofnarrativetypes@gmail.com",
     templateId: SendGridTemplateId,
     dynamicTemplateData: {
