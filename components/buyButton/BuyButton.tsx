@@ -18,13 +18,20 @@ export const BuyButton = forwardRef<
     products: StripeProductWithPrice[];
     className?: string;
     children?: React.ReactNode;
+    trials?: boolean;
   }
->(({ products, className, children }, ref) => {
+>(({ products, className, children, trials }, ref) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedProducts, setSelectedProducts] = useState<
     StripeProductWithPrice[]
   >([]);
   const [addedToCart, setAddedToCart] = useState(false);
+
+  if (trials) {
+    products = products.filter((product) => product.metadata?.trial);
+  } else {
+    products = products.filter((product) => !product.metadata?.trial);
+  }
 
   useImperativeHandle(ref, () => ({
     openModal() {
@@ -43,16 +50,13 @@ export const BuyButton = forwardRef<
   }
 
   function handleAddToCart() {
-    if (addedToCart) {
-      window.location.href = "/cart";
-      return;
-    }
     const cart = selectedProducts.map((p) => ({
       id: p.id,
       quantity: 1,
     }));
     document.cookie = `cart=${JSON.stringify(cart)}; path=/; max-age=${60 * 60 * 24 * 2}`;
     setAddedToCart(true);
+    window.location.href = "/cart";
   }
 
   function dismissModal() {
@@ -171,7 +175,7 @@ export const BuyButton = forwardRef<
                     },
                   )}
                 >
-                  {addedToCart ? "Check out" : "Add to cart"}
+                  Check out
                 </button>
               </div>
             </div>

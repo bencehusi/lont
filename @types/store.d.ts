@@ -13,7 +13,7 @@ export interface StripePrice {
   custom_unit_amount: null;
   livemode: boolean;
   lookup_key: null;
-  metadata: {};
+  metadata: { [key: string]: string };
   nickname: null;
   product: string;
   recurring: null;
@@ -36,7 +36,7 @@ export interface StripeProduct {
   images: [];
   livemode: boolean;
   marketing_features: [];
-  metadata: {};
+  metadata: { [key: string]: string };
   name: string;
   package_dimensions: null;
   shippable: null;

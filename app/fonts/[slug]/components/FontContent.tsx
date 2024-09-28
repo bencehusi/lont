@@ -157,9 +157,13 @@ export default function FontContent({
         >
           Buy
         </button>
-        <button className="rounded-xl border-2 border-black bg-[#F59797] px-4 py-1 font-bold md:text-lg">
+        <BuyButton
+          trials
+          products={products}
+          className="-m-0.5 rounded-xl border-2 border-black bg-[#F59797] px-4 py-1 font-bold md:text-lg"
+        >
           Trials
-        </button>
+        </BuyButton>
         <a
           href="/specimen/LNT-Natalia-Mono-specimen.pdf"
           target="_blank"
