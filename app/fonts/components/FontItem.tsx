@@ -6,7 +6,7 @@ export function FontItem({ font }: { font: Story }) {
   return (
     <Link
       href={`/fonts/${font.slug}`}
-      className="-m-0.5 block space-y-10 rounded-xl border-2 border-black px-6 py-4"
+      className="-m-0.5 block rounded-xl border-2 border-black px-6 py-4"
     >
       <Image
         src={font.content?.preview_image?.filename}
@@ -14,7 +14,15 @@ export function FontItem({ font }: { font: Story }) {
         width={266}
         height={396}
         layout="responsive"
-        className="rounded-xl"
+        className="mb-10 hidden rounded-xl sm:block"
+      />
+      <Image
+        src={font.content?.mobile_preview_image?.filename}
+        alt={font.content?.preview_image?.alt}
+        width={266}
+        height={396}
+        layout="responsive"
+        className="mb-10 rounded-xl sm:hidden"
       />
       <div className="flex text-sm md:text-base">
         <div className="grow">
