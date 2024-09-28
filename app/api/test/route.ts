@@ -5,6 +5,9 @@ sgMail.setApiKey(process.env.SEND_GRID_API_KEY as string);
 const SendGridTemplateId = "d-17682e5e3c8a46f1bd45ceaf1bb0ea26";
 
 export async function POST(req: NextRequest) {
+  if (process.env.NODE_ENV === "production") {
+    return NextResponse.json({ message: "disabled" });
+  }
   const msg = {
     to: "bence.husi@gmail.com", // Change to your recipient
     from: {
