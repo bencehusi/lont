@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import localFont from "next/font/local";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 
@@ -59,7 +60,7 @@ export default function RootLayout({
       <html lang="en">
         {/* favicon favicon-frame-1.svg */}
         <head>
-          <meta charSet="utf-8" />
+          <GoogleAnalytics gaId="G-43RR0TW1RJ" />
           <meta
             name="viewport"
             content="width=device-width, initial-scale=1.0"
