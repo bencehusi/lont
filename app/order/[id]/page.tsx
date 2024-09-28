@@ -66,7 +66,8 @@ export default async function OrderId({ params }: PageProps) {
               </div>
               <div className="flex justify-end">
                 <Link
-                  href={item.product.metadata.downloadUrl}
+                  href={`/downloads/${item.product.metadata.downloadUrl}`}
+                  download={`/downloads/${item.product.metadata.downloadUrl}`}
                   target="_blank"
                   className="-mb-0.5 -mr-0.5 inline-flex items-center gap-2 rounded-xl border-2 border-black bg-[#F59797] px-4 py-2"
                 >
