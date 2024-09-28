@@ -1,5 +1,6 @@
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 import { PageProps } from "@/@types/common";
+import Link from "next/link";
 import { MdDownload } from "react-icons/md";
 
 export default async function OrderId({ params }: PageProps) {
@@ -47,7 +48,7 @@ export default async function OrderId({ params }: PageProps) {
         <p className="mb-10">
           Order reference:
           <span className="inline-block bg-[#F59797] px-2">
-            {session.payment_intent}
+            {session.payment_intent || session.id}
           </span>
         </p>
         <h2 className="mb-6 text-xl font-bold">Products</h2>
@@ -64,10 +65,14 @@ export default async function OrderId({ params }: PageProps) {
                 <p className="text-sm">{item.product.description}</p>
               </div>
               <div className="flex justify-end">
-                <button className="-mb-0.5 -mr-0.5 inline-flex items-center gap-2 rounded-xl border-2 border-black bg-[#F59797] px-4 py-2">
+                <Link
+                  href={item.product.metadata.downloadUrl}
+                  target="_blank"
+                  className="-mb-0.5 -mr-0.5 inline-flex items-center gap-2 rounded-xl border-2 border-black bg-[#F59797] px-4 py-2"
+                >
                   <MdDownload size={18} className="-mb-0.5" />
                   Download package
-                </button>
+                </Link>
               </div>
             </li>
           ))}

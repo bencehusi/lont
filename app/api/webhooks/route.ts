@@ -87,7 +87,7 @@ export async function POST(req: NextRequest) {
     const session_id = session.id;
     const email = session.customer_details?.email;
     const customer_name = session.customer_details?.name;
-    const order_number = session.payment_intent;
+    const order_number = session.payment_intent || session.id;
     const purchase_date = new Date(session.created * 1000).toLocaleDateString();
     const purchased_products = lineItems.data.map((item) => item.description);
     /* Download link are in metadata metadata: { downloadUrl: 'https://lont.vercel.app/' }, */
