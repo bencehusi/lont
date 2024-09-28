@@ -44,7 +44,6 @@ export default async function FontPage({ params }: PageProps) {
   const { slug } = params;
   const font = await fetchStories({
     slug: [`fonts/${slug}`],
-    cv: Date.now(),
   });
   const products = await stripe.products.list({
     limit: 100,
