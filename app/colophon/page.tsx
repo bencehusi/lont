@@ -101,7 +101,7 @@ export default async function ColophonPage({ params }: PageProps) {
   const headings = extractHeadings(colohpon.story?.content?.content);
 
   return (
-    <div className="flex h-full grow flex-col items-stretch md:flex-row">
+    <div className="-mt-0.5 flex h-full grow flex-col items-stretch md:flex-row lg:mt-0">
       <aside className="order-last flex flex-col md:order-first lg:w-[266px]">
         <div className="hidden rounded-xl border-2 border-black px-5 py-2 font-bold md:block">
           Index
@@ -111,14 +111,14 @@ export default async function ColophonPage({ params }: PageProps) {
           className="peer hidden"
           id="colophon-index-toggle"
         />
-        <label
+        {/* <label
           htmlFor="colophon-index-toggle"
           className="order-last -mt-0.5 block space-y-2.5 rounded-xl border-2 border-black px-5 py-4 font-bold md:hidden"
         >
           <div className="mx-auto w-8 border-t border-black" />
           <div className="mx-auto w-8 border-t border-black" />
           <div className="mx-auto w-8 border-t border-black" />
-        </label>
+        </label> */}
         <ul className="-mt-0.5 hidden grow space-y-2 overflow-y-auto rounded-xl border-2 border-black px-5 py-2 peer-checked:block md:block">
           {headings?.map(
             (heading: { text: string; level: number; link: string }) => (

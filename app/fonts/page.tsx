@@ -15,7 +15,7 @@ export default async function Fonts() {
     starts_with: "fonts",
   });
   return (
-    <div className="h-full grow rounded-xl border-2 border-black">
+    <div className="-mt-0.5 h-full grow rounded-xl border-2 border-black lg:mt-0">
       {fonts?.map((font: Story) => <FontItem key={font.id} font={font} />)}
     </div>
   );

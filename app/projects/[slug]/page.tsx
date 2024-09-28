@@ -43,7 +43,7 @@ export default async function ProjectPage({ params }: PageProps) {
     slug: [`projects/${slug}`],
   });
   return (
-    <div className="h-full grow overflow-y-auto rounded-xl border-2 border-black">
+    <div className="-mt-0.5 h-full grow overflow-y-auto rounded-xl border-2 border-black lg:mt-0">
       <Project blok={project.story?.content} />
     </div>
   );

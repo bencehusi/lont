@@ -97,7 +97,7 @@ export default function RootLayout({
         >
           <Link
             href="/"
-            className="order-1 -mb-0.5 flex shrink-0 items-center justify-center rounded-xl border-2 border-black py-4 font-bold lg:mb-0 lg:h-full lg:w-10 lg:-rotate-180 lg:justify-start lg:[writing-mode:vertical-rl]"
+            className="order-1 flex shrink-0 items-center justify-center rounded-xl border-2 border-black py-4 font-bold lg:mb-0 lg:h-full lg:w-10 lg:-rotate-180 lg:justify-start lg:[writing-mode:vertical-rl]"
           >
             Library of Narrative Types
           </Link>
@@ -120,6 +120,30 @@ export default function RootLayout({
             Colophon
           </Link>
           <ExposeRouteWrapper>{children}</ExposeRouteWrapper>
+          <input
+            type="checkbox"
+            className="peer hidden"
+            id="colophon-index-toggle"
+          />
+          <label
+            htmlFor="colophon-index-toggle"
+            className="order-last -mt-1 block space-y-2.5 rounded-xl border-2 border-black px-5 py-4 font-bold md:hidden"
+          >
+            <span className="mx-auto block w-8 border-t border-black" />
+            <span className="mx-auto block w-8 border-t border-black" />
+            <span className="mx-auto block w-8 border-t border-black" />
+          </label>
+          <ul className="absolute bottom-[67px] left-2.5 right-2.5 z-10 -mt-1 hidden grow space-y-2 overflow-y-auto rounded-xl border-2 border-black bg-spring-wood-50 px-5 py-2 peer-checked:block">
+            <li className="flex items-center space-x-2 font-bold">
+              <a href="/fonts">Fonts</a>
+            </li>
+            <li className="flex items-center space-x-2 font-bold">
+              <a href="/shop">Shop</a>
+            </li>
+            <li className="flex items-center space-x-2 font-bold">
+              <a href="/colophon">Colophon</a>
+            </li>
+          </ul>
         </body>
       </html>
     </StoryblokProvider>
