@@ -2,6 +2,9 @@ import { fetchStories } from "@/lib/storyblok";
 import { FontItem } from "./components/FontItem";
 import { Story } from "@/@types/storyblok";
 
+// Revalidate the page every hour (3600 seconds)
+export const revalidate = 3600;
+
 export async function generateMetadata() {
   return {
     title: "Fonts | Library of Narrative Types",

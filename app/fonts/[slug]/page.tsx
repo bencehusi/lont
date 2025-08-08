@@ -5,7 +5,6 @@ import { fetchStories } from "@/lib/storyblok";
 import { extractImageDimensions } from "@/lib/storyblok/ExtractImageDimensions";
 import FontContent from "./components/FontContent";
 import { PageProps } from "@/@types/common";
-import { StripeProduct } from "@/@types/store";
 
 export async function generateMetadata(
   { params, searchParams }: PageProps,
