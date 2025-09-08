@@ -51,6 +51,12 @@ async function fetchViaListFallback(
 
 export async function POST(req: NextRequest) {
   try {
+    if (process.env.NODE_ENV === "production") {
+      return NextResponse.json(
+        { error: "This endpoint is disabled in production." },
+        { status: 403 },
+      );
+    }
     const body = await req.json().catch(() => ({}));
     const filename: string =
       body.filename ?? "LoNT Pricing Sheet - Pricing Sheet.csv";
