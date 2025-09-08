@@ -1,10 +1,9 @@
-import {
-  StoryblokComponent as OriginalStoryblokComponent,
-  storyblokEditable,
-} from "@storyblok/react/rsc";
+import { storyblokEditable } from "@storyblok/react/rsc";
 
 export function StoryblokComponent(props: any) {
   return (
-    <OriginalStoryblokComponent {...props} {...storyblokEditable(props.blok)} />
+    <div {...storyblokEditable(props.blok)} {...props}>
+      {props.children}
+    </div>
   );
 }

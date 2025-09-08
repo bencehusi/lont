@@ -108,3 +108,37 @@ For each of these collection-types there are two content types:
 To listen to webhooks run the Stripe CLI
 
 `stripe listen --forward-to localhost:3000/api/webhooks`
+
+## Product import
+
+Run a dry run first to preview:
+
+```bash
+curl -X POST http://localhost:3000/api/import-products \
+  -H "Content-Type: application/json" \
+  -d '{"dryRun": true}'
+```
+
+Run the import:
+
+```bash
+curl -X POST http://localhost:3000/api/import-products \
+  -H "Content-Type: application/json" \
+  -d '{}'
+```
+
+## Fix import if something went wrong
+
+```bash
+# Only update product.metadata.displayName
+curl -X POST http://localhost:3000/api/fix-display-name \
+  -H "Content-Type: application/json" \
+  -d '{"batchId":"import_2025-09-08-21-06-17"}'
+```
+
+```bash
+# Also mirror displayName to the default Price metadata (optional)
+curl -X POST http://localhost:3000/api/fix-display-name \
+  -H "Content-Type: application/json" \
+  -d '{"batchId":"import_2025-09-08-21-06-17","updatePrice":true}'
+```

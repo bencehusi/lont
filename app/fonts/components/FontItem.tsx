@@ -2,7 +2,13 @@ import Link from "next/link";
 import { Story } from "@/@types/storyblok";
 import Image from "next/image";
 
-export function FontItem({ font }: { font: Story }) {
+export function FontItem({
+  font,
+  priority,
+}: {
+  font: Story;
+  priority: boolean;
+}) {
   return (
     <Link
       href={`/fonts/${font.slug}`}
@@ -13,16 +19,18 @@ export function FontItem({ font }: { font: Story }) {
         alt={font.content?.preview_image?.alt}
         width={266}
         height={396}
-        layout="responsive"
-        className="mb-10 hidden rounded-xl sm:block"
+        fill={false}
+        className="mb-10 hidden w-full rounded-xl object-contain sm:block"
+        priority={priority}
       />
       <Image
         src={font.content?.mobile_preview_image?.filename}
         alt={font.content?.preview_image?.alt}
         width={266}
         height={396}
-        layout="responsive"
-        className="mb-10 rounded-xl sm:hidden"
+        fill={false}
+        className="mb-10 w-full rounded-xl object-contain sm:hidden"
+        priority={priority}
       />
       <div className="flex text-sm md:text-base">
         <div className="grow">

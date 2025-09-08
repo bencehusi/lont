@@ -26,7 +26,6 @@ export default async function Cart() {
     const price = prices.data.find(
       (p: StripePrice) => p.id === product.default_price,
     );
-    console.log(prices, product, price);
     return {
       ...item,
       price: price.unit_amount,

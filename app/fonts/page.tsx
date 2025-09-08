@@ -19,7 +19,9 @@ export default async function Fonts() {
   });
   return process.env.STORE_OPEN === "true" ? (
     <div className="-mt-0.5 h-full grow rounded-xl border-2 border-black lg:mt-0">
-      {fonts?.map((font: Story) => <FontItem key={font.id} font={font} />)}
+      {fonts?.map((font: Story, idx: number) => (
+        <FontItem key={font.id} font={font} priority={idx < 3} />
+      ))}
     </div>
   ) : (
     <div className="-mt-0.5 h-full grow overflow-y-auto rounded-xl border-2 border-black px-4 py-10 sm:px-6 md:py-16 lg:mt-0">
