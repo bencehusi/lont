@@ -69,22 +69,7 @@ export default async function Cart() {
                 type="hidden"
                 name="lineItems"
                 value={JSON.stringify({
-                  price_data: {
-                    currency: "eur",
-                    unit_amount: item.price,
-                    product_data: {
-                      name: `${item.name}`,
-                      description: `Egyedi description`, // EZ fog látszani
-                      metadata: {
-                        family: "Egyedi family",
-                        weight: "Egyedi weight",
-                        style: "Egyedi style",
-                        license: "Egyedi license",
-                        tier: "Egyedi tier",
-                        downloadUrl: "https://lont.vercel.app/",
-                      },
-                    },
-                  },
+                  price: item.price_id,
                   quantity: item.quantity,
                 })}
               />
