@@ -65,8 +65,9 @@ export default function FontContent({
       ))}
       {font.story?.content?.showcase && (
         <div className="-mx-0.5 mt-px grid w-[calc(100%+4px)] grid-cols-1 lg:grid-cols-2">
-          {font.story?.content?.showcase.map((showcase: any) => (
+          {font.story?.content?.showcase.map((showcase: any, index: number) => (
             <BlokImage
+              key={index}
               blok={{ image: showcase.image }}
               className={classNames(
                 "-m-px rounded-xl border-2 border-black",
