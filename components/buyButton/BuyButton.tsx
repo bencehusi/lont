@@ -285,6 +285,10 @@ export const BuyButton = forwardRef<
       quantity: 1,
     }));
     document.cookie = `cart=${JSON.stringify(cart)}; path=/; max-age=${60 * 60 * 24 * 2}`;
+
+    // Dispatch custom event to update floating cart button
+    window.dispatchEvent(new CustomEvent("cartUpdated"));
+
     setAddedToCart(true);
     window.location.href = "/cart";
   }

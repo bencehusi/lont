@@ -8,6 +8,7 @@ import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 import "./globals.css";
 import { StoryblokProvider } from "@/components/providers/StoryblokProvider";
 import ExposeRouteWrapper from "@/components/helpers/ExposeRouteWrapper";
+import { FloatingCartButton } from "@/components/FloatingCartButton";
 import { Project } from "@/components/contentTypes/Project";
 import { RichText } from "@/components/bloks/RichText";
 import { BlokImage } from "@/components/bloks/BlokImage";
@@ -147,6 +148,7 @@ export default function RootLayout({
               <a href="/colophon">Colophon</a>
             </li>
           </ul>
+          <FloatingCartButton />
         </body>
       </html>
     </StoryblokProvider>

@@ -37,7 +37,11 @@ export default async function Cart() {
   return (
     <div className="h-full grow rounded-xl border-2 border-black">
       <div className="mx-auto my-10 max-w-[680px] px-5">
-        <h1 className="mb-8 font-bold">Finalize your order</h1>
+        {cartWithPrices.length === 0 ? (
+          <h1 className="mb-8 font-bold">Your cart is empty.</h1>
+        ) : (
+          <h1 className="mb-8 font-bold">Finalize your order</h1>
+        )}
         <ul>
           {cartWithPrices.map((item: any) => (
             <li key={item.price_id} className="flex justify-between px-5 py-2">
@@ -85,13 +89,23 @@ export default async function Cart() {
                 })}
               />
             ))}
-            <button
-              type="submit"
-              role="link"
-              className="rounded-xl border-2 border-black bg-[#F59797] px-4 py-1 font-bold"
-            >
-              Proceed to checkout
-            </button>
+            {cartWithPrices.length === 0 ? (
+              <div
+                className="cursor-not-allowed select-none rounded-xl border-2 border-black bg-gray-200 px-4 py-1 text-center font-bold"
+                aria-disabled="true"
+                tabIndex={-1}
+              >
+                Proceed to checkout
+              </div>
+            ) : (
+              <button
+                type="submit"
+                role="link"
+                className="rounded-xl border-2 border-black bg-[#F59797] px-4 py-1 font-bold"
+              >
+                Proceed to checkout
+              </button>
+            )}
           </form>
         </div>
       </div>
