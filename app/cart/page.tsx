@@ -2,7 +2,7 @@ import { cookies } from "next/headers";
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 import type { CartItem, StripePrice, StripeProduct } from "@/@types/store";
-import Link from "next/link";
+import { CartItems } from "@/components/CartItems";
 
 export default async function Cart() {
   /* Read cart data from the cookies */
@@ -42,57 +42,7 @@ export default async function Cart() {
         ) : (
           <h1 className="mb-8 font-bold">Finalize your order</h1>
         )}
-        <ul>
-          {cartWithPrices.map((item: any) => (
-            <li key={item.price_id} className="flex justify-between px-5 py-2">
-              <div>{item.name}</div>
-              <div>{(item.price / 100).toFixed(2)} €</div>
-            </li>
-          ))}
-        </ul>
-        <hr className="my-4 border-b-2 border-t-0 border-black" />
-        <div className="mb-8 flex justify-between px-5 py-2">
-          <div className="font-bold">Total</div>
-          <div>
-            {(
-              cartWithPrices.reduce((acc, item) => acc + item.price, 0) / 100
-            ).toFixed(2)}{" "}
-            €
-          </div>
-        </div>
-        <div className="flex justify-between">
-          <Link href="/fonts">Continue shopping</Link>
-          <form action="/api/checkout-sessions" method="POST">
-            {cartWithPrices.map((item) => (
-              <input
-                key={item.price_id}
-                type="hidden"
-                name="lineItems"
-                value={JSON.stringify({
-                  price: item.price_id,
-                  quantity: item.quantity,
-                })}
-              />
-            ))}
-            {cartWithPrices.length === 0 ? (
-              <div
-                className="cursor-not-allowed select-none rounded-xl border-2 border-black bg-gray-200 px-4 py-1 text-center font-bold"
-                aria-disabled="true"
-                tabIndex={-1}
-              >
-                Proceed to checkout
-              </div>
-            ) : (
-              <button
-                type="submit"
-                role="link"
-                className="rounded-xl border-2 border-black bg-[#F59797] px-4 py-1 font-bold"
-              >
-                Proceed to checkout
-              </button>
-            )}
-          </form>
-        </div>
+        <CartItems initialCartItems={cartWithPrices} />
       </div>
     </div>
   );
