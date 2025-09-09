@@ -7,6 +7,7 @@ import { Story } from "@/@types/storyblok";
 import { BlokImage } from "@/components/bloks/BlokImage";
 import { RichText } from "@/components/bloks/RichText";
 import { BuyButton } from "@/components/buyButton/BuyButton";
+import classNames from "classnames";
 
 export default function FontContent({
   font,
@@ -26,13 +27,10 @@ export default function FontContent({
   };
 
   return (
-    <div className="-mt-0.5 h-full grow overflow-y-auto rounded-xl border-2 border-black lg:mt-0">
+    <div className="-mt-0.5 h-full grow overflow-y-auto overflow-x-hidden rounded-xl border-2 border-black lg:mt-0">
       <div className="relative z-10 -mx-0.5 -mt-0.5 min-h-20 rounded-xl border-2 border-black bg-spring-wood pl-4 md:min-h-36">
         <div className="flex items-center justify-between">
-          <h1 className="font-bold">
-            {font.story?.content?.name}&nbsp;
-            <span className="capitalize">{font.story?.content?.style}</span>
-          </h1>
+          <h1 className="font-bold">{font.story?.content?.name}&nbsp;</h1>
           <BuyButton
             products={products}
             className="-m-0.5 rounded-xl border-2 border-black bg-[#F59797] px-4 py-1 font-bold md:text-lg"
@@ -49,22 +47,41 @@ export default function FontContent({
           className="max-h-[420px] rounded-xl border-2 border-black object-cover object-center"
         />
       </div>
-      {font.story?.content?.weights.map((weight: any) => (
+      {font.story?.content?.styles.map((style: any) => (
         <div
-          key={weight.weight_text}
+          key={style.style_text}
           className="-m-0.5 rounded-xl border-2 border-black px-4 py-2 pb-8 md:px-6"
         >
           <h2 className="mb-2">
-            {font.story?.content?.name} {weight.weight_text}
+            {font.story?.content?.name} {style.style_text}
           </h2>
-          {weight.preview_image && (
+          {style.preview_image && (
             <BlokImage
-              blok={{ image: weight.preview_image }}
+              blok={{ image: style.preview_image }}
               className="w-full"
             />
           )}
         </div>
       ))}
+      {font.story?.content?.showcase && (
+        <div className="-mx-0.5 mt-px grid w-[calc(100%+4px)] grid-cols-1 lg:grid-cols-2">
+          {font.story?.content?.showcase.map((showcase: any) => (
+            <BlokImage
+              blok={{ image: showcase.image }}
+              className={classNames(
+                "-m-px rounded-xl border-2 border-black",
+                showcase.size === "full"
+                  ? "col-span-1 h-auto w-full lg:col-span-2"
+                  : classNames(
+                      "h-auto w-full",
+                      "lg:-mx-px", // negative margin and width compensation on lg+
+                      showcase.index % 2 === 0 ? "lg:-ml-px" : "lg:-mr-px",
+                    ),
+              )}
+            />
+          ))}
+        </div>
+      )}
       <div className="max-w-[624px] space-y-8 px-4 py-3 md:px-6">
         {font.story?.content?.description && (
           <div>
@@ -72,14 +89,14 @@ export default function FontContent({
             <RichText blok={font.story?.content?.description} />
           </div>
         )}
-        <div>
+        {/* <div>
           <h2>Weights:</h2>
           <ul className="list-disc pl-4">
-            {font.story?.content?.weights.map((weight: any) => (
-              <li key={weight.weight_text}>{weight.weight_text}</li>
+            {font.story?.content?.styles.map((style: any) => (
+              <li key={style.style_text}>{style.style_text}</li>
             ))}
           </ul>
-        </div>
+        </div> */}
         {/* Weight */}
         <div>
           <h2>Number of glyphs:</h2>

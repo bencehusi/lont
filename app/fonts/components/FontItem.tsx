@@ -32,15 +32,32 @@ export function FontItem({
         className="mb-10 w-full rounded-xl object-contain sm:hidden"
         priority={priority}
       />
-      <div className="flex text-sm md:text-base">
-        <div className="grow">
+      <div
+        className="
+          grid grid-cols-2 grid-rows-2
+          items-center
+          gap-y-1
+          text-sm
+          md:grid-cols-3
+          md:grid-rows-1 md:text-base
+        "
+      >
+        <div className="col-start-1 row-start-1 md:col-start-1 md:row-start-1">
           <h2>{font.content?.name}</h2>
-          <p className="capitalize">{font.content?.style}</p>
         </div>
-        <div className="grow">
-          <p>{font.content?.weights.length} weights</p>
-          <p>{font.content.features}</p>
+        <div className="col-start-2 row-start-1 md:col-start-2 md:row-start-1">
+          <p>{font.content?.styles.length} styles</p>
         </div>
+        {font.content.features && (
+          <div
+            className="
+              col-start-2 row-start-2
+              md:col-start-3 md:row-start-1
+            "
+          >
+            <p>{font.content.features}</p>
+          </div>
+        )}
       </div>
     </Link>
   );
