@@ -28,7 +28,7 @@ export default function FontContent({
 
   return (
     <div className="-mt-0.5 h-full grow overflow-y-auto overflow-x-hidden rounded-xl border-2 border-black lg:mt-0">
-      <div className="relative z-10 -mx-0.5 -mt-0.5 min-h-20 rounded-xl border-2 border-black bg-spring-wood pl-4 md:min-h-36">
+      <div className="relative z-10 -mx-0.5 -mt-0.5 rounded-xl border-2 border-black bg-spring-wood pl-4">
         <div className="flex items-center justify-between">
           <h1 className="font-bold">{font.story?.content?.name}&nbsp;</h1>
           <BuyButton

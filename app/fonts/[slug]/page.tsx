@@ -60,6 +60,7 @@ export default async function FontPage({ params }: PageProps) {
       await stripe.products.list({
         limit: 100,
         starting_after,
+        active: true, // Only fetch active (non-archived) products
       });
     allProducts.push(...res.data);
     hasMore = res.has_more;
