@@ -24,6 +24,11 @@ export async function POST(req: NextRequest) {
       success_url: `${req.nextUrl.origin}/order?success=true`,
       cancel_url: `${req.nextUrl.origin}/order?canceled=true`,
       automatic_tax: { enabled: true },
+      billing_address_collection: "required",
+      payment_method_types: ["card", "ideal"],
+      customer_creation: "always",
+      invoice_creation: { enabled: true },
+      tax_id_collection: { enabled: true },
     });
     return NextResponse.redirect(session.url, 303);
   } catch (err: any) {
